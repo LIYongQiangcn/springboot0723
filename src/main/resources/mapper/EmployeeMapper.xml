@@ -4,4 +4,8 @@
     <select id="query" resultType="com.example.entity.EmployeeDO">
         select * from employee;
     </select>
+    <select id="queryById" parameterType="java.lang.Integer" resultType="com.example.entity.EmployeeDO">
+        select * from employee where id = #{id};
+    </select>
+
 </mapper>

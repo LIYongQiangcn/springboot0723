@@ -12,4 +12,6 @@ import java.util.List;
 public interface EmployeeMapper {
 
     List<EmployeeDO> query();
+
+    EmployeeDO queryById(Integer id);
 }
