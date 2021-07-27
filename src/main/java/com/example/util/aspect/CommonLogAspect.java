@@ -29,7 +29,6 @@ public class CommonLogAspect {
      */
     @Pointcut(value = "@annotation(com.example.util.annotation.LogAnnotation)")
     private void pointcut() {
-
     }
 
     /**
