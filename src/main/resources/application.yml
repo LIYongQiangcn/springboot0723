@@ -9,7 +9,27 @@ spring:
     druid:
       stat-view-servlet:
         url-pattern: /druid/*
-
+#  kafka:
+#    bootstrap-servers: 192.168.1.132:9092
+#    consumer:
+#      properties:
+#        group-id: test-consumer-group
+#        auto-offset-reset: earliest
+#        enable-auto-commit: false
+#        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    producer:
+#      retries: 0
+#      acks: 1
+#      batch-size: 16384
+#      properties:
+#        linger:
+#          ms: 0
+#      buffer-memory: 33554432
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    listener:
+#      missing-topics-fatal: false
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
 
@@ -24,4 +44,6 @@ xxl:
       port: 8888
     admin:
       addresses: http://192.168.1.132:8080/xxl-job-admin
+
+
 

@@ -9,4 +9,5 @@ import lombok.Data;
 public class EmployeeDO {
     private Integer id;
     private Integer salary;
+    private Integer status;
 }
