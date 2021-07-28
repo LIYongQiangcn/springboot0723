@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Yongqiang.li
  */
 @Configuration
-@ComponentScan(basePackages = "com.example.handler")
+@ComponentScan(basePackages = "com.example.handlerJob")
 public class XxlJobConfig {
 
     @Value("${xxl.job.admin.addresses}")

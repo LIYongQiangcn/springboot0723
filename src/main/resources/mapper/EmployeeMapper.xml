@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.dao.EmployeeMapper">
+    <update id="updateInfos" parameterType="List">
+        update employee set status = 1 
+        where id in
+        <foreach item="item" collection="ids" separator="," open="(" close=")" index="index">
+            #{item,jdbcType=TINYINT}
+        </foreach>
+    </update>
     <select id="query" resultType="com.example.entity.EmployeeDO">
         select * from employee;
     </select>
     <select id="queryById" parameterType="java.lang.Integer" resultType="com.example.entity.EmployeeDO">
         select * from employee where id = #{id};
+    </select>
+    <select id="queryByStatus" resultType="com.example.entity.EmployeeDO">
+        select * from employee where status = 0;
     </select>
 
 </mapper>

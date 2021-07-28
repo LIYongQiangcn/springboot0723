@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Yongqiang.li
@@ -34,6 +35,15 @@ public class EmployeeController {
     @GetMapping("getById")
     public EmployeeDO queryById(@RequestParam Integer id) {
         return employeeMapper.queryById(id);
+    }
+
+    @LogAnnotation(desc = "手动更新数据")
+    @GetMapping("update")
+    public List<Integer> update() {
+        List<EmployeeDO> list = employeeMapper.queryByStatus();
+        List<Integer> ids = list.stream().map(EmployeeDO::getId).collect(Collectors.toList());
+        employeeMapper.updateInfos(ids);
+        return ids;
     }
 
 }
