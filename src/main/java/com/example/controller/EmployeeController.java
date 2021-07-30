@@ -4,19 +4,18 @@ import com.example.dao.EmployeeMapper;
 import com.example.entity.EmployeeDO;
 import com.example.util.annotation.LogAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * @author Yongqiang.li
+ * @CrossOrigin  解决跨域注解
  */
 @RestController
 @RequestMapping("employee")
+@CrossOrigin
 public class EmployeeController {
 
     private final EmployeeMapper employeeMapper;
@@ -36,7 +35,6 @@ public class EmployeeController {
     public EmployeeDO queryById(@RequestParam Integer id) {
         return employeeMapper.queryById(id);
     }
-
     @LogAnnotation(desc = "手动更新数据")
     @GetMapping("update")
     public List<Integer> update() {
