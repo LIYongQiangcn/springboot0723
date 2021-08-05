@@ -44,4 +44,16 @@ public class EmployeeController {
         return ids;
     }
 
+    @GetMapping("batchUpdate")
+    public boolean update(@RequestBody List<EmployeeDO> list) {
+        employeeMapper.batchUpdate(list);
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String str = "";
+        String[] split = str.split("#");
+        System.out.println("长度为： "+split.length);
+    }
+
 }

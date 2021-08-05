@@ -1,6 +1,6 @@
-package com.example.lock;
+package com.example.lock.redisson;
 
-import com.example.lock.LockService;
+import com.example.lock.redisson.LockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("lock")
 public class LockTestController {
+
 
     @Autowired
     private LockService lockService;

@@ -10,7 +10,7 @@ import java.util.List;
  * @author Yongqiang.li
  */
 @Mapper
-public interface EmployeeMapper {
+public interface EmployeeMapper extends BaseMapper<EmployeeDO> {
 
     List<EmployeeDO> query();
 

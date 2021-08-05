@@ -24,9 +24,45 @@ public class RedisUtil {
         return key == null ? null : (String) redisTemplate.opsForValue().get(key);
     }
 
-    public boolean set(String key, String value) {
+    /**
+     * 缓存set值：可重复set
+     * @param key
+     * @param value
+     * @return
+     */
+    public boolean set(String key, Object value) {
         try {
             redisTemplate.opsForValue().set(key, value);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 如果key已存在，则返回false
+     * @param key
+     * @param value
+     * @return
+     */
+    public boolean setNx(String key, Object value) {
+        try {
+            return redisTemplate.opsForValue().setIfAbsent(key, value);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 缓存删除
+     * @param key
+     * @return
+     */
+    public boolean del(String key) {
+        try {
+            redisTemplate.delete(key);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

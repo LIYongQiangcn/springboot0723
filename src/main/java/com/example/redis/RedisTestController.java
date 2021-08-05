@@ -32,7 +32,7 @@ public class RedisTestController {
             if (ObjectUtils.isEmpty(product)) {
                 redisUtil.set(id.toString()," ");
             }
-            redisUtil.set(id.toString(),product.toString());
+            redisUtil.set(id.toString(),product);
             return "从数据库查询: "+product.toString();
         }
         return "从redis查询";
